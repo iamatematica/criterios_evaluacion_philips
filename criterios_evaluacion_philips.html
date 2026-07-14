@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Criterios de Evaluación · Matemática 5.º año · laboratoriobest-IA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FFFFFF;
+    --ink:#22344A;
+    --blue:#005EB0;      /* azul navegación Philips */
+    --celeste:#0082D5;   /* celeste institucional */
+    --logo:#5FA1DD;      /* celeste del logo */
+    --indigo1:#749FFC;   /* gradiente botón: inicio */
+    --indigo2:#4C66F3;   /* gradiente botón: fin */
+    --gris:#71717A;      /* gris de texto del sitio */
+    --crema:#F2F8FD;     /* celeste muy claro para pastillas */
+    --grid:rgba(0,130,213,0.06);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background-color:var(--paper);
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size:28px 28px;
+    color:var(--ink);
+    font-family:'Hanken Grotesk',sans-serif;
+    line-height:1.65;
+    padding:24px 16px 48px;
+  }
+  .hoja{
+    max-width:860px;
+    margin:0 auto;
+  }
+
+  /* ---------- Marca ---------- */
+  .marca{
+    display:flex;
+    align-items:baseline;
+    background:#faf8f1;
+    border:1.5px solid rgba(32,32,28,0.12);
+    border-radius:999px;
+    padding:8px 20px;
+    width:fit-content;
+    box-shadow:0 2px 6px rgba(0,94,176,0.06);
+  }
+  .marca .punto{
+    width:10px;height:10px;border-radius:50%;
+    background:#b57d4c;
+    align-self:center;
+    margin-right:10px;
+  }
+  .marca span{
+    font-family:'Fraunces',serif;
+    font-weight:700;
+    font-size:1.25rem;
+    letter-spacing:0;
+  }
+  .marca .m1{color:#20201c;}
+  .marca .m2{color:#b57d4c;}
+  .marca .m3{color:#415a8e;}
+  .bajada{
+    font-size:0.85rem;
+    color:var(--gris);
+    margin-top:6px;
+    margin-left:6px;
+  }
+
+  /* ---------- Encabezado ---------- */
+  header{margin-bottom:36px;}
+  .institucion{
+    margin-top:28px;
+    font-size:0.8rem;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    color:var(--celeste);
+  }
+  h1{
+    font-family:'Fraunces',serif;
+    font-weight:900;
+    font-size:clamp(2rem, 5vw, 3rem);
+    line-height:1.12;
+    margin-top:8px;
+    color:var(--ink);
+  }
+  .subtitulo{
+    font-size:1.05rem;
+    color:var(--gris);
+    margin-top:10px;
+    max-width:640px;
+  }
+  .chips{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:18px;
+  }
+  .chip{
+    font-size:0.82rem;
+    font-weight:600;
+    padding:5px 14px;
+    border-radius:999px;
+    border:1.5px solid;
+  }
+  .chip.azul{color:var(--blue);border-color:var(--blue);background:rgba(0,94,176,0.06);}
+  .chip.ambar{color:var(--celeste);border-color:var(--celeste);background:rgba(0,130,213,0.07);}
+  .chip.verde{color:var(--indigo2);border-color:var(--indigo2);background:rgba(76,102,243,0.06);}
+
+  /* ---------- Secciones ---------- */
+  section{margin-bottom:34px;}
+  .cabecera-seccion{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:16px;
+  }
+  .numero{
+    font-family:'Fraunces',serif;
+    font-weight:900;
+    font-size:1.5rem;
+    color:#fff;
+    width:44px;height:44px;
+    border-radius:12px;
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  }
+  h2{
+    font-family:'Fraunces',serif;
+    font-weight:700;
+    font-size:1.45rem;
+    line-height:1.2;
+  }
+  .s1 .numero{background:var(--blue);}
+  .s1 h2{color:var(--blue);}
+  .s2 .numero{background:var(--celeste);}
+  .s2 h2{color:var(--celeste);}
+  .s3 .numero{background:linear-gradient(135deg,var(--indigo1),var(--indigo2));}
+  .s3 h2{color:var(--indigo2);}
+
+  .tarjeta{
+    background:#fff;
+    border:1.5px solid rgba(0,94,176,0.12);
+    border-radius:16px;
+    padding:22px 24px;
+    margin-bottom:14px;
+    box-shadow:0 2px 8px rgba(0,94,176,0.06);
+    border-left-width:6px;
+  }
+  .s1 .tarjeta{border-left-color:var(--blue);}
+  .s2 .tarjeta{border-left-color:var(--celeste);}
+  .s3 .tarjeta{border-left-color:var(--indigo2);}
+  .tarjeta h3{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:1.12rem;
+    margin-bottom:8px;
+  }
+  .s1 .tarjeta h3{color:var(--blue);}
+  .s2 .tarjeta h3{color:var(--celeste);}
+  .s3 .tarjeta h3{color:var(--indigo2);}
+  .s4 .numero{background:linear-gradient(135deg,var(--celeste),var(--blue));}
+  .s4 h2{color:var(--blue);}
+  .s4 .tarjeta{border-left-color:var(--logo);}
+  .s4 .tarjeta h3{color:var(--blue);}
+  .tarjeta p{margin-bottom:8px;}
+  .tarjeta p:last-child{margin-bottom:0;}
+  .tarjeta ul{
+    margin:6px 0 0 0;
+    padding-left:22px;
+  }
+  .tarjeta li{margin-bottom:6px;}
+  .tarjeta li:last-child{margin-bottom:0;}
+
+  .nota-seccion{
+    font-size:0.95rem;
+    color:var(--ink);
+    background:var(--crema);
+    border:1.5px dashed var(--celeste);
+    border-radius:12px;
+    padding:14px 18px;
+    margin-top:4px;
+  }
+  .nota-seccion strong{color:var(--blue);}
+
+  .destacado{
+    background:linear-gradient(135deg,rgba(116,159,252,0.10),rgba(76,102,243,0.08));
+    border:1.5px solid var(--indigo2);
+    border-radius:12px;
+    padding:12px 16px;
+    margin-top:10px;
+    font-size:0.97rem;
+  }
+  .destacado strong{color:var(--indigo2);}
+
+  /* ---------- Condiciones de aprobación ---------- */
+  .condiciones{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+    margin-bottom:14px;
+  }
+  @media (max-width:640px){
+    .condiciones{grid-template-columns:1fr;}
+  }
+  .condicion{
+    background:#fff;
+    border:2px solid var(--indigo2);
+    border-radius:16px;
+    padding:20px 22px;
+    box-shadow:0 2px 8px rgba(0,94,176,0.06);
+  }
+  .condicion .rotulo{
+    font-size:0.78rem;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+    color:var(--indigo2);
+    margin-bottom:6px;
+  }
+  .condicion h3{
+    font-family:'Fraunces',serif;
+    font-weight:700;
+    font-size:1.15rem;
+    color:var(--ink);
+    margin-bottom:6px;
+  }
+  .condicion p{font-size:0.95rem;}
+  .conector{
+    text-align:center;
+    font-family:'Fraunces',serif;
+    font-weight:900;
+    font-size:1.1rem;
+    color:var(--indigo2);
+    letter-spacing:0.08em;
+    margin-bottom:14px;
+  }
+
+  /* ---------- Tabla resumen ---------- */
+  .resumen{
+    width:100%;
+    border-collapse:collapse;
+    background:#fff;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 2px 8px rgba(0,94,176,0.06);
+    border:1.5px solid rgba(0,94,176,0.12);
+    font-size:0.95rem;
+  }
+  .resumen th{
+    background:var(--celeste);
+    color:#fff;
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    text-align:left;
+    padding:12px 16px;
+  }
+  .resumen td{
+    padding:12px 16px;
+    border-top:1px solid rgba(0,94,176,0.10);
+    vertical-align:top;
+  }
+  .resumen td:first-child{font-weight:600;}
+  .pill{
+    display:inline-block;
+    font-size:0.78rem;
+    font-weight:700;
+    padding:2px 10px;
+    border-radius:999px;
+    color:#fff;
+  }
+  .pill.sum{background:var(--blue);}
+  .pill.form{background:var(--logo);}
+
+  /* ---------- Footer ---------- */
+  footer{
+    margin-top:48px;
+    background:var(--celeste);
+    border-radius:16px;
+    padding:28px 24px;
+    text-align:center;
+  }
+  footer .frase{
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-size:1.1rem;
+    color:#fff;
+    margin-bottom:14px;
+  }
+  footer .marca{margin:0 auto;}
+  footer .prof{
+    font-size:0.85rem;
+    color:rgba(255,255,255,0.9);
+    margin-top:10px;
+  }
+
+  @media print{
+    body{background:none;padding:0;}
+    .tarjeta,.condicion,.resumen{box-shadow:none;}
+  }
+</style>
+</head>
+<body>
+<div class="hoja">
+
+  <header>
+    <div class="marca">
+      <div class="punto"></div><span class="m1">laboratorio</span><span class="m2">best</span><span class="m3">-IA</span>
+    </div>
+    <div class="bajada">Prof. Ariel L. Cardozo Delgado</div>
+
+    <div class="institucion">Escuela Técnica Philips · Secundario</div>
+    <h1>Criterios de Evaluación</h1>
+    <p class="subtitulo">Matemática · 5.º año — Cómo se evalúa, qué se valora y qué condiciones hay que cumplir para aprobar la materia.</p>
+    <div class="chips">
+      <span class="chip azul">5ET</span>
+      <span class="chip azul">5FT</span>
+      <span class="chip ambar">Ciclo lectivo 2026</span>
+      <span class="chip verde">Evaluación integral: sumativa y formativa</span>
+    </div>
+  </header>
+
+  <!-- ================= 1. SUMATIVA ================= -->
+  <section class="s1">
+    <div class="cabecera-seccion">
+      <div class="numero">1</div>
+      <h2>Evaluación sumativa</h2>
+    </div>
+
+    <div class="tarjeta">
+      <h3>Exámenes escritos</h3>
+      <p>Evalúan el dominio de los contenidos trabajados en cada unidad: comprensión de conceptos, correcta aplicación de procedimientos y justificación de los resultados.</p>
+      <ul>
+        <li><strong>Nota mínima de aprobación:</strong> 6 (seis), en escala de 1 a 10.</li>
+        <li>Cada examen cuenta con su instancia de <strong>recuperatorio</strong>.</li>
+        <li>Se valora tanto el resultado final como el desarrollo: un resultado correcto sin procedimiento no acredita el ejercicio completo.</li>
+      </ul>
+    </div>
+
+    <div class="tarjeta">
+      <h3>Trabajos prácticos</h3>
+      <p>Evalúan el trabajo sostenido sobre los contenidos. La calificación considera:</p>
+      <ul>
+        <li><strong>Completitud:</strong> todos los ejercicios o consignas resueltos.</li>
+        <li><strong>Corrección matemática:</strong> desarrollos claros, notación adecuada y resultados verificados.</li>
+        <li><strong>Fundamentación y presentación:</strong> justificación de los procedimientos y prolijidad del trabajo.</li>
+      </ul>
+      <div class="destacado">
+        <strong>Entrega en tiempo y forma:</strong> cada trabajo tiene una fecha y un formato establecidos. Las entregas fuera de término se aceptan, con <strong>incidencia en la calificación</strong>. La entrega y aprobación de todos los trabajos prácticos sigue siendo condición para aprobar la materia.
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 2. FORMATIVA ================= -->
+  <section class="s2">
+    <div class="cabecera-seccion">
+      <div class="numero">2</div>
+      <h2>Evaluación formativa</h2>
+    </div>
+
+    <div class="tarjeta">
+      <h3>Participación en clase</h3>
+      <ul>
+        <li>Intervenciones pertinentes durante las explicaciones y puestas en común.</li>
+        <li>Resolución de actividades y explicación de procedimientos, en forma <strong>oral o escrita</strong>.</li>
+        <li>Formulación de preguntas y colaboración con compañeros.</li>
+      </ul>
+    </div>
+
+    <div class="tarjeta">
+      <h3>Convivencia y responsabilidad</h3>
+      <ul>
+        <li>Respeto por las normas de convivencia institucionales.</li>
+        <li>Actitud responsable frente al trabajo y cumplimiento de acuerdos.</li>
+        <li>Uso adecuado de dispositivos, materiales y recursos del aula.</li>
+      </ul>
+    </div>
+
+    <div class="tarjeta">
+      <h3>Proceso de trabajo</h3>
+      <ul>
+        <li>Carpeta completa y ordenada.</li>
+        <li>Trabajo sostenido durante las clases.</li>
+        <li>Revisión de los propios errores e incorporación de las devoluciones.</li>
+        <li>Uso de los recursos del laboratorio digital de matemática.</li>
+      </ul>
+    </div>
+
+    <p class="nota-seccion">
+      <strong>Carácter cualitativo:</strong> la evaluación formativa no tiene un porcentaje asignado en la calificación. Acompaña el proceso de aprendizaje e <strong>incide en la nota de cierre</strong> de cada período (por ejemplo, en la definición de redondeos y de notas intermedias), pero no reemplaza las condiciones de aprobación.
+    </p>
+  </section>
+
+  <!-- ================= 3. CONDICIONES ================= -->
+  <section class="s3">
+    <div class="cabecera-seccion">
+      <div class="numero">3</div>
+      <h2>Condiciones de aprobación de la materia</h2>
+    </div>
+
+    <p style="margin-bottom:14px;">Para aprobar la materia deben cumplirse <strong>ambas condiciones simultáneamente</strong>:</p>
+
+    <div class="condiciones">
+      <div class="condicion">
+        <div class="rotulo">Condición 1</div>
+        <h3>Aprobar los exámenes</h3>
+        <p>Todos los exámenes aprobados con nota mayor o igual a 6, ya sea en primera instancia o en el recuperatorio correspondiente.</p>
+      </div>
+      <div class="condicion">
+        <div class="rotulo">Condición 2</div>
+        <h3>Trabajos prácticos completos</h3>
+        <p>El 100 % de los trabajos prácticos <strong>entregados y aprobados</strong>. Las entregas fuera de término se aceptan, con incidencia en la calificación; la entrega es obligatoria.</p>
+      </div>
+    </div>
+    <div class="conector">CONDICIÓN 1 &nbsp;+&nbsp; CONDICIÓN 2</div>
+
+    <table class="resumen">
+      <thead>
+        <tr>
+          <th>Instrumento</th>
+          <th>Tipo</th>
+          <th>¿Qué se evalúa?</th>
+          <th>Capacidades que desarrolla</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Exámenes escritos</td>
+          <td><span class="pill sum">Sumativa</span></td>
+          <td>Dominio de contenidos. Aprobación con nota ≥ 6, con recuperatorio.</td>
+          <td>Resolución de problemas, justificación del razonamiento y verificación de los resultados.</td>
+        </tr>
+        <tr>
+          <td>Trabajos prácticos</td>
+          <td><span class="pill sum">Sumativa</span></td>
+          <td>Completitud, corrección matemática, fundamentación y presentación. Deben entregarse y aprobarse todos; fuera de término se aceptan, con incidencia en la calificación.</td>
+          <td>Organización, trabajo autónomo y comunicación matemática.</td>
+        </tr>
+        <tr>
+          <td>Participación en clase</td>
+          <td><span class="pill form">Formativa</span></td>
+          <td>Intervenciones orales o escritas, resolución de actividades, colaboración. Valoración cualitativa.</td>
+          <td>Argumentación oral y colaboración.</td>
+        </tr>
+        <tr>
+          <td>Convivencia y responsabilidad</td>
+          <td><span class="pill form">Formativa</span></td>
+          <td>Respeto, actitud frente al trabajo, cumplimiento de acuerdos y uso responsable de recursos. Valoración cualitativa.</td>
+          <td>Responsabilidad y trabajo con otros.</td>
+        </tr>
+        <tr>
+          <td>Proceso de trabajo</td>
+          <td><span class="pill form">Formativa</span></td>
+          <td>Carpeta, trabajo sostenido, uso del laboratorio digital. Valoración cualitativa.</td>
+          <td>Autonomía, constancia, pensamiento autocrítico y uso crítico de la IA.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+
+  <!-- ================= 4. INTELIGENCIA ARTIFICIAL ================= -->
+  <section class="s4">
+    <div class="cabecera-seccion">
+      <div class="numero">4</div>
+      <h2>Uso de la inteligencia artificial</h2>
+    </div>
+
+    <p style="margin-bottom:14px;">La inteligencia artificial forma parte del entorno de aprendizaje de esta materia: los recursos del laboratorio digital la incorporan, y su <strong>uso crítico</strong> — verificar sus respuestas, detectar sus errores, contrastar con lo trabajado en clase — es una de las capacidades que la asignatura se propone formar. Las pautas según la instancia son:</p>
+
+    <div class="tarjeta">
+      <h3>En el estudio</h3>
+      <p>Uso libre y alentado. La IA puede funcionar como tutor personal: explorar explicaciones alternativas, verificar procedimientos, generar ejercicios de práctica y repasar antes de un examen.</p>
+    </div>
+
+    <div class="tarjeta">
+      <h3>En los trabajos prácticos</h3>
+      <p>Permitida como apoyo. La <strong>comprensión es indelegable</strong>: el estudiante debe poder explicar y fundamentar todo lo que entrega, y esa comprensión podrá verificarse oralmente o en instancias de examen. Un trabajo que su autor no puede explicar no acredita, con o sin IA.</p>
+    </div>
+
+    <div class="tarjeta">
+      <h3>En los exámenes</h3>
+      <p>No se utiliza. El examen certifica lo que cada estudiante sabe hacer por sí mismo.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p class="frase">«La matemática no exige genios, exige constancia.»</p>
+    <div class="marca">
+      <div class="punto"></div><span class="m1">laboratorio</span><span class="m2">best</span><span class="m3">-IA</span>
+    </div>
+    <p class="prof">Prof. Ariel L. Cardozo Delgado · Escuela Técnica Philips · Una experiencia interactiva y dinámica</p>
+  </footer>
+
+</div>
+</body>
+</html>
